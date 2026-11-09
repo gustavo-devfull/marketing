@@ -101,7 +101,7 @@ export default function FilesTab({ referencia, tipo, assets, loading, canWrite, 
           {progress ? `Enviando ${Math.min(progress.done + 1, progress.total)} de ${progress.total}…` : 'Enviar arquivos'}
         </button>
         <p className="text-sm text-gray-500">
-          {canWrite ? <>ou arraste os arquivos para cá. {info.hint}</> : <>Entre com seu login para enviar arquivos. {info.hint}</>}
+          {canWrite ? <>ou arraste os arquivos para cá. {info.hint}</> : <>Seu perfil é somente consulta: enviar arquivos exige o perfil admin ou marketing.</>}
         </p>
       </div>
 

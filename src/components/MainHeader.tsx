@@ -6,11 +6,12 @@ const PRODUCTS_SYSTEM_URL = (import.meta.env.VITE_PRODUCTS_SYSTEM_URL as string 
 
 interface Props {
   session: Session | null
+  role: string
   onLogin: () => void
   onLogout: () => void
 }
 
-export default function MainHeader({ session, onLogin, onLogout }: Props) {
+export default function MainHeader({ session, role, onLogin, onLogout }: Props) {
   return (
     <header className="sticky top-0 z-30 border-b bg-white shadow-sm">
       <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-2 px-4 py-2">
@@ -19,7 +20,8 @@ export default function MainHeader({ session, onLogin, onLogout }: Props) {
           <h1 className="text-lg font-bold text-gray-800">Marketing Ravi <span className="font-normal text-gray-500">– Gestão de Ativos</span></h1>
         </a>
         <div className="flex items-center gap-3">
-          <SupabaseStatus />
+          {session && role && <SupabaseStatus key={session.user.id} />}
+          {session && <span className="hidden text-xs text-gray-500 sm:inline">{session.user.email}{role && ` · ${role}`}</span>}
           {PRODUCTS_SYSTEM_URL && (
             <a href={PRODUCTS_SYSTEM_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-lg border px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50">
               <ExternalLink size={14} /> Base de Produtos

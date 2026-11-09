@@ -15,14 +15,10 @@ export default function PermissionError({ detail, onClose, onLogin }: Props) {
           <h2 className="text-lg font-semibold">Sem permissão para esta ação</h2>
         </div>
         <p className="mb-3 text-sm text-gray-700">
-          O Supabase bloqueou a operação. A consulta é pública, mas
-          <strong> enviar, editar e excluir ativos exigem login</strong>.
+          O Supabase bloqueou a operação. Qualquer perfil ativo pode consultar, mas
+          <strong> enviar, editar e excluir ativos exige o perfil admin ou marketing</strong>.
         </p>
-        <ol className="mb-3 list-decimal space-y-1 pl-5 text-sm text-gray-700">
-          <li>Entre com seu e-mail e senha (botão abaixo).</li>
-          <li>Se ainda não tem usuário: Supabase → Authentication → Users → Add user.</li>
-          <li>Se as tabelas ou o bucket não existem, rode <code className="rounded bg-gray-100 px-1">supabase/migrations/0001_marketing_assets.sql</code> no SQL Editor.</li>
-        </ol>
+        <p className="mb-3 text-sm text-gray-700">Se a sua sessão expirou, entre de novo. Se o seu perfil é outro, peça a um administrador para ajustá-lo.</p>
         {detail && <p className="mb-3 break-words rounded bg-gray-50 p-2 text-xs text-gray-500">{detail}</p>}
         <div className="flex justify-end gap-2">
           <button onClick={onClose} className="rounded-lg border px-4 py-2 text-sm hover:bg-gray-50">Fechar</button>

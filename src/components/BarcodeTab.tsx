@@ -156,7 +156,7 @@ export default function BarcodeTab({ product, canWrite, onSaved, onError, onNoti
             : !savedJson ? <span className="text-xs text-gray-400">Dados vindos do cadastro (ainda não salvos)</span>
             : dirty ? <span className="text-xs text-amber-600">Alterações não salvas</span>
             : <span className="text-xs text-gray-400">Tudo salvo</span>}
-          <button onClick={save} disabled={saving || !loaded || !dirty} className={btnPrimary} title={canWrite ? '' : 'Requer login'}>
+          <button onClick={save} disabled={saving || !loaded || !dirty || !canWrite} className={btnPrimary} title={canWrite ? '' : 'Salvar exige o perfil admin ou marketing'}>
             {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />} Salvar dados
           </button>
         </div>

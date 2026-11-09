@@ -23,7 +23,7 @@ export default function LoginScreen({ onClose }: { onClose: () => void }) {
       <form onSubmit={submit} className="relative w-full max-w-sm rounded-xl bg-white p-6 shadow-xl">
         <button type="button" onClick={onClose} className="absolute right-3 top-3 text-gray-400 hover:text-gray-600" aria-label="Fechar"><X size={18} /></button>
         <h2 className="mb-1 text-xl font-semibold text-gray-800">Entrar</h2>
-        <p className="mb-4 text-sm text-gray-500">Login necessário para enviar, editar e excluir ativos.</p>
+        <p className="mb-4 text-sm text-gray-500">Use o mesmo e-mail e senha da Base de Produtos.</p>
         <label className="mb-3 block text-sm">
           <span className="mb-1 block text-gray-600">E-mail</span>
           <input type="email" required autoFocus value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded-lg border px-3 py-2 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" />
